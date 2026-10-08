@@ -8,7 +8,7 @@ dotenv.config({ path: envPath })
 
 export async function connectDatabase() {
   const uri = process.env.MONGODB_URI?.trim()
-  if (!uri) throw new Error('MONGODB_URI is not configured in server/.env')
+  if (!uri) throw new Error('MONGODB_URI is not configured')
   if (uri.includes('example.')) throw new Error('MONGODB_URI contains a placeholder hostname. Replace it with the real MongoDB Atlas connection string.')
   await mongoose.connect(uri, { dbName: 'stockDB' })
   console.log('MongoDB connected successfully')
