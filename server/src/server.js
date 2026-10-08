@@ -10,10 +10,12 @@ app.use(cors({ origin: frontendUrl }))
 app.use(express.json())
 app.get('/api/health', (_req, res) => res.json({ success: true, status: 'ok', message: 'Server is running' }))
 app.use('/api/companies', companyRoutes)
+app.get('/', (_req, res) => res.json({ success: true, message: 'Market Lens API is running', health: '/api/health' }))
 app.use((error, _req, res, _next) => {
   console.error(error)
   res.status(error?.statusCode ?? 500).json({ success: false, message: error?.statusCode ? error.message : 'Internal server error' })
 })
+app.use((_req, res) => res.status(404).json({ success: false, message: 'Route not found' }))
 
 const port = Number.parseInt(process.env.PORT ?? '5000', 10)
 let server
