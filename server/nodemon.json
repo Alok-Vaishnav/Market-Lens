@@ -1,0 +1,17 @@
+{
+  "watch": [
+    "src"
+  ],
+  "ext": "js,mjs,cjs",
+  "ignore": [
+    ".env",
+    "*.log",
+    "logs/**",
+    "uploads/**",
+    "cache/**",
+    "tmp/**",
+    "generated/**",
+    "dist/**",
+    "build/**"
+  ]
+}

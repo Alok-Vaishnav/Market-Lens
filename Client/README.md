@@ -22,12 +22,14 @@ Configure the backend:
 copy ..\server\.env.example ..\server\.env
 ```
 
-Set `MONGODB_URI` to the existing MongoDB Atlas connection string. The URI is server-only and must never be placed in a Vite environment file.
+Set `BHARATSTOCK_API_KEY` to your own active BharatStock API key. The value in `server/.env.example` is only a placeholder; do not use it or commit a real key. The key is server-only and must never be placed in a Vite environment file.
+
+Restart the backend after changing `server/.env` so the new key is loaded. If company search returns `503`, verify that the key is active and has access to the BharatStock API.
 
 Configure the frontend if the backend is not running on the default address:
 
 ```env
-VITE_API_BASE_URL=http://localhost:5000/api
+VITE_API_BASE_URL=http://localhost:8005/api
 ```
 
 Run the applications in separate terminals:
@@ -37,7 +39,7 @@ npm run dev
 npm run server:dev
 ```
 
-Company records are read from MongoDB. Missing financial values remain `null` and are rendered as `N/A`.
+Company records are read through the server-side BharatStock proxy. Missing financial values remain `null` and are rendered as `N/A`.
 
 ## API
 
