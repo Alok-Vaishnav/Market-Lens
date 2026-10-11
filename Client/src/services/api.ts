@@ -2,7 +2,10 @@
 import type { CompanyData, CompanySearchResult } from '../types/company'
 
 const API_BASE_URL = (
-  import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8005/api'
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD
+    ? 'https://market-lens-1-c26q.onrender.com/api'
+    : 'http://localhost:8005/api')
 ).replace(/\/+$/, '')
 
 export const API_RATE_LIMIT_EVENT = 'market-lens:api-rate-limit'

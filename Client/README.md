@@ -32,6 +32,12 @@ Configure the frontend if the backend is not running on the default address:
 VITE_API_BASE_URL=http://localhost:8005/api
 ```
 
+For the deployed frontend, set `VITE_API_BASE_URL` to:
+
+```env
+VITE_API_BASE_URL=https://market-lens-1-c26q.onrender.com/api
+```
+
 Run the applications in separate terminals:
 
 ```bash

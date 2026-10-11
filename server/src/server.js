@@ -25,7 +25,7 @@ const port = Number.parseInt(process.env.PORT || "8005", 10);
 const frontendUrl =
   process.env.FRONTEND_URL ||
   process.env.FRONTEND_ORIGIN ||
-  "http://localhost:5173";
+  "https://market-lens-weld.vercel.app";
 
 // -------------------- CONFIGURATION VALIDATION --------------------
 
